@@ -1,0 +1,4 @@
+:root{--carbon:#181A1B;--marfil:#F0E4CC;--carmin:#B4373D;--humo:#96938B;--negro:#0e0f10;--grafito:#24272a;--acero:#3d4044;--papel:#e6d8bb;--tinta:#1c1a17;--ambar:#c9a25b;color-scheme:dark}
+@font-face{font-family:"TdH Oswald";src:url("/fuentes/Oswald-Variable.ttf") format("truetype");font-weight:200 700;font-display:swap}
+@font-face{font-family:"TdH Arimo";src:url("/fuentes/Arimo-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"TdH Arimo";src:url("/fuentes/Arimo-Bold.ttf") format("truetype");font-weight:700;font-display:swap}

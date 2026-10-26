@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://testigodelhumo.github.io/sitemap.xml

@@ -1,0 +1,160 @@
+/* Web de Testigo del Humo. Los colores salen de src/theme.ts (tema.css, generado por scripts/web.mjs): aquí solo var(). */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--carbon);
+  color: var(--marfil);
+  font: 400 1.0625rem/1.65 "TdH Arimo", Arial, sans-serif;
+  background-image: radial-gradient(ellipse at 50% -10%, color-mix(in srgb, var(--humo) 14%, transparent), transparent 60%);
+  background-attachment: fixed;
+}
+[id] { scroll-margin-top: 84px; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration-color: var(--carmin); text-underline-offset: 3px; }
+a:hover { color: var(--marfil); text-decoration-thickness: 2px; }
+a, button, summary, [role="tab"] { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--carmin); outline-offset: 3px; }
+h1, h2, h3, .rotulo, .boton, .pestanas button {
+  font-family: "TdH Oswald", Impact, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.1;
+}
+h1 { font-size: clamp(2rem, 6vw, 3.6rem); margin: .2em 0 .3em; }
+h2 { font-size: clamp(1.5rem, 3.6vw, 2.2rem); margin: 2.2rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 1.8rem 0 .7rem; }
+p { margin: 0 0 1em; }
+.envoltura { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.estrecho { width: min(780px, 100% - 32px); margin-inline: auto; }
+.solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.salto { position: absolute; left: -999px; top: 8px; background: var(--marfil); color: var(--carbon); padding: 8px 12px; z-index: 10; }
+.salto:focus { left: 8px; }
+.rotulo { color: var(--carmin); font-size: .95rem; letter-spacing: .12em; margin: 0; }
+.tenue { color: var(--humo); }
+
+/* Cabecera y pie */
+.barra { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--negro) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--acero); }
+.barra__dentro { display: flex; align-items: center; gap: 16px; min-height: 64px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "TdH Oswald", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: 1.15rem; }
+.marca img { width: 40px; height: 40px; }
+.menu { display: flex; gap: 22px; list-style: none; margin: 0 0 0 auto; padding: 0; font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .06em; }
+.menu a { text-decoration: none; color: var(--humo); }
+.menu a:hover, .menu a[aria-current="page"] { color: var(--marfil); }
+.menu a[aria-current="page"] { box-shadow: inset 0 -2px var(--carmin); }
+.pie { margin-top: 5rem; border-top: 1px solid var(--acero); background: var(--negro); padding: 2.5rem 0 3rem; font-size: .95rem; }
+.pie__rejilla { display: grid; gap: 2rem; grid-template-columns: 2fr 1fr 1fr; }
+.pie h2 { font-size: 1rem; margin: 0 0 .6rem; color: var(--humo); letter-spacing: .1em; }
+.pie ul { list-style: none; margin: 0; padding: 0; }
+.pie li { margin: .3rem 0; }
+.pie__marca img { width: 64px; height: 64px; margin-bottom: .6rem; }
+.pie__lema { font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .12em; color: var(--carmin); }
+.pie__legal { color: var(--humo); margin-top: 2rem; font-size: .85rem; }
+
+/* Botones */
+.boton { display: inline-flex; align-items: center; gap: 8px; padding: .7rem 1.2rem; border: 1px solid var(--marfil); color: var(--marfil); text-decoration: none; background: transparent; font-size: 1rem; }
+.boton:hover { background: var(--marfil); color: var(--carbon); }
+.boton--carmin { background: var(--carmin); border-color: var(--carmin); }
+.boton--carmin:hover { background: var(--marfil); border-color: var(--marfil); }
+.boton svg { width: 20px; height: 20px; fill: currentColor; }
+
+/* Portada */
+.portada { padding: 4rem 0 2rem; text-align: center; }
+.portada__logo { width: 132px; height: 132px; margin: 0 auto 1.2rem; }
+.portada h1 { margin-bottom: .1em; }
+.portada__lema { font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .2em; color: var(--carmin); margin-bottom: 1.4rem; }
+.portada__texto { max-width: 640px; margin: 0 auto 1.6rem; color: var(--humo); }
+.portada .botones { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Tarjetas de caso */
+.rejilla { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.tarjeta { position: relative; background: var(--grafito); border: 1px solid var(--acero); transition: border-color .2s, transform .2s; }
+.tarjeta:hover { border-color: var(--carmin); transform: translateY(-2px); }
+.tarjeta img { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; }
+.tarjeta__texto { padding: 1rem 1.1rem 1.2rem; }
+.tarjeta h3 { margin: .3rem 0 .5rem; font-size: 1.3rem; }
+.tarjeta h3 a { text-decoration: none; }
+.tarjeta h3 a::after { content: ""; position: absolute; inset: 0; }
+.tarjeta p { color: var(--humo); font-size: .95rem; margin: 0; }
+.destacado { display: grid; gap: 28px; grid-template-columns: 1.4fr 1fr; align-items: center; background: var(--grafito); border: 1px solid var(--acero); padding: 18px; position: relative; }
+.destacado:hover { border-color: var(--carmin); }
+.destacado img { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; }
+.destacado h2 { margin: .4rem 0 .8rem; }
+.destacado h2 a { text-decoration: none; }
+.destacado h2 a::after { content: ""; position: absolute; inset: 0; }
+.ejes { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); list-style: none; padding: 0; margin: 0; }
+.ejes li { background: var(--grafito); border: 1px solid var(--acero); padding: 1rem; text-align: center; }
+.ejes img { width: 96px; height: 96px; margin: 0 auto .6rem; }
+.ejes strong { display: block; font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .04em; }
+.ejes span { color: var(--humo); font-size: .9rem; }
+.principios { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.principios div { border-left: 3px solid var(--carmin); padding: .2rem 0 .2rem 1rem; }
+.principios strong { font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .04em; display: block; margin-bottom: .2rem; }
+.principios p { color: var(--humo); margin: 0; font-size: .95rem; }
+
+/* Ficha del caso */
+.migas { font-size: .9rem; color: var(--humo); margin: 1.5rem 0 0; }
+.migas ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+.migas li + li::before { content: "›"; margin-right: 6px; color: var(--carmin); }
+.ficha__cabeza { padding: 1rem 0 1.4rem; }
+.ficha__datos { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--humo); font-size: .95rem; margin: 0; padding: 0; list-style: none; }
+.reproductor { position: relative; aspect-ratio: 16 / 9; background: var(--negro); border: 1px solid var(--acero); overflow: hidden; }
+.reproductor img, .reproductor iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.reproductor button { position: absolute; inset: 0; width: 100%; background: transparent; border: 0; display: grid; place-items: center; }
+.reproductor button span { width: 84px; height: 84px; border-radius: 50%; background: var(--carmin); display: grid; place-items: center; box-shadow: 0 0 0 10px color-mix(in srgb, var(--carmin) 30%, transparent); transition: transform .2s; }
+.reproductor button:hover span { transform: scale(1.08); }
+.reproductor button svg { width: 34px; height: 34px; fill: var(--marfil); margin-left: 5px; }
+.reproductor__pronto { margin-top: .7rem; }
+.pestanas { display: flex; gap: 4px; border-bottom: 1px solid var(--acero); margin: 2rem 0 0; overflow-x: auto; }
+.pestanas button { background: none; border: 0; color: var(--humo); padding: .9rem 1.1rem; font-size: 1.05rem; border-bottom: 3px solid transparent; white-space: nowrap; }
+.pestanas button[aria-selected="true"] { color: var(--marfil); border-bottom-color: var(--carmin); }
+.pestanas button:hover { color: var(--marfil); }
+.panel { padding-top: .6rem; }
+.js .panel[hidden] { display: none; }
+.aviso { border: 1px solid var(--carmin); background: color-mix(in srgb, var(--carmin) 12%, transparent); padding: .9rem 1.1rem; margin: 1.4rem 0; }
+.aviso p { margin: 0; }
+.capitulos { list-style: none; padding: 0; margin: 0; counter-reset: cap; }
+.capitulos li { border-bottom: 1px solid var(--acero); }
+.capitulos li > * { display: flex; gap: 16px; padding: .65rem .2rem; text-decoration: none; }
+.capitulos a:hover { background: var(--grafito); }
+.capitulos time { font-family: "TdH Oswald", sans-serif; color: var(--carmin); min-width: 3.4em; }
+.ayuda { background: var(--grafito); border: 1px solid var(--acero); padding: 1.2rem 1.4rem; margin: 2.5rem 0 0; }
+.ayuda h2 { margin-top: 0; font-size: 1.3rem; }
+.ayuda ul { margin: 0; padding-left: 1.1rem; }
+.ayuda strong { font-family: "TdH Oswald", sans-serif; letter-spacing: .04em; font-size: 1.1rem; }
+
+/* Documentación */
+.leyenda { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; list-style: none; color: var(--humo); font-size: .95rem; }
+.estado { display: inline-block; font-family: "TdH Oswald", sans-serif; font-weight: 600; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; padding: .1rem .45rem; border: 1px solid currentColor; vertical-align: .12em; white-space: nowrap; }
+.estado--V { color: var(--marfil); }
+.estado--P { color: var(--ambar); }
+.hechos { list-style: none; padding: 0; margin: 0; }
+.hechos > li { border-left: 2px solid var(--acero); padding: .2rem 0 .2rem 1rem; margin: 0 0 1.3rem; }
+.hechos > li:hover { border-left-color: var(--carmin); }
+.hechos p { margin: 0 0 .35rem; }
+.fuentes { list-style: none; padding: 0; margin: 0; font-size: .92rem; color: var(--humo); }
+.fuentes li { margin: .15rem 0; overflow-wrap: anywhere; }
+.fuentes li::before { content: "→ "; color: var(--carmin); }
+.titulares { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); list-style: none; padding: 0; margin: 0; }
+.titulares li { background: var(--papel); color: var(--tinta); padding: 1rem 1.1rem; box-shadow: 0 6px 18px color-mix(in srgb, var(--negro) 60%, transparent); }
+.titulares blockquote { margin: 0 0 .6rem; font: 700 1.15rem/1.25 Georgia, "Times New Roman", serif; }
+.titulares p { margin: 0; font-size: .88rem; }
+.titulares a { color: var(--tinta); }
+.titulares .estado { color: var(--tinta); }
+.creditos { columns: 2 300px; padding-left: 1.1rem; color: var(--humo); }
+
+/* Transcripción */
+.transcripcion p { margin-bottom: .9em; }
+.transcripcion p > :first-child { font-family: "TdH Oswald", sans-serif; color: var(--carmin); text-decoration: none; margin-right: .6em; font-size: .9rem; }
+.metodo h2 { border-top: 1px solid var(--acero); padding-top: 1.6rem; }
+
+@media (max-width: 760px) {
+  .pie__rejilla, .destacado { grid-template-columns: 1fr; }
+  .menu { gap: 12px; font-size: .9rem; }
+  .barra__dentro { gap: 10px; }
+  .pestanas button { padding: .8rem .7rem; font-size: .98rem; }
+  .marca span { display: none; }
+  .portada { padding-top: 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
