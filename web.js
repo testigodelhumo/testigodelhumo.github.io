@@ -4,6 +4,7 @@ document.documentElement.classList.add("js");
 
 const pestanas = [...document.querySelectorAll('[role="tab"]')];
 const paneles = pestanas.map((b) => document.getElementById(b.getAttribute("aria-controls")));
+const hashId = () => { try { return decodeURIComponent(location.hash.slice(1)); } catch { return ""; } };
 
 const abrir = (id, enfocar = false) => {
   const i = paneles.findIndex((p) => p && p.id === id);
@@ -19,7 +20,7 @@ const abrir = (id, enfocar = false) => {
 
 // Un ancla puede ser una pestaña o algo de dentro de una (#h-012 abre «Documentación» y baja al hecho).
 const seguirAncla = () => {
-  const id = decodeURIComponent(location.hash.slice(1));
+  const id = hashId();
   if (!id || abrir(id)) return;
   const destino = document.getElementById(id);
   const panel = destino?.closest('[role="tabpanel"]');
@@ -40,7 +41,7 @@ if (pestanas.length) {
       history.replaceState(null, "", `#${paneles[j].id}`);
     });
   });
-  if (!location.hash || !document.getElementById(decodeURIComponent(location.hash.slice(1)))) abrir(paneles[0].id);
+  if (!location.hash || !document.getElementById(hashId())) abrir(paneles[0].id);
   else seguirAncla();
   addEventListener("hashchange", seguirAncla);
 }

@@ -31,7 +31,7 @@ p { margin: 0 0 1em; }
 .solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .salto { position: absolute; left: -999px; top: 8px; background: var(--marfil); color: var(--carbon); padding: 8px 12px; z-index: 10; }
 .salto:focus { left: 8px; }
-.rotulo { color: var(--carmin); font-size: .95rem; letter-spacing: .12em; margin: 0; }
+.rotulo { color: var(--marfil); border-left: 2px solid var(--carmin); padding-left: .5rem; font-size: .95rem; letter-spacing: .12em; margin: 0; }
 .tenue { color: var(--humo); }
 
 /* Cabecera y pie */
@@ -49,7 +49,7 @@ p { margin: 0 0 1em; }
 .pie ul { list-style: none; margin: 0; padding: 0; }
 .pie li { margin: .3rem 0; }
 .pie__marca img { width: 64px; height: 64px; margin-bottom: .6rem; }
-.pie__lema { font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .12em; color: var(--carmin); }
+.pie__lema { font-family: "TdH Oswald", sans-serif; text-transform: uppercase; letter-spacing: .12em; color: var(--marfil); }
 .pie__legal { color: var(--humo); margin-top: 2rem; font-size: .85rem; }
 
 /* Botones */
